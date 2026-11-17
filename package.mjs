@@ -129,15 +129,18 @@ function main() {
   execFileSync('tar', ['-czf', tarball, '-C', stageRoot, name], { stdio: 'inherit' })
   const tarballInfo = fs.statSync(tarball)
 
-  // 3. 安装说明
+  // 3. 安装说明（中文名给本地用；ASCII 名给 GitHub Release 附件用，避免上传时非 ASCII 文件名被截断）
   const guideFile = path.join(outDir, `安装说明-${version}.md`)
   fs.writeFileSync(guideFile, installGuide(name, version), 'utf8')
+  const asciiGuideFile = path.join(outDir, `install-guide-${version}.md`)
+  fs.writeFileSync(asciiGuideFile, installGuide(name, version), 'utf8')
 
   console.log('')
   console.log('[完成] 打包产物')
   console.log(`  包文件 : ${tarball}  (${(tarballInfo.size / 1024).toFixed(0)} KB)`)
   console.log(`  文件数 : ${count}`)
   console.log(`  说明   : ${guideFile}`)
+  console.log(`           ${asciiGuideFile}`)
 }
 
 main()

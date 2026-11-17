@@ -50,11 +50,11 @@ jobs:
           NOTES="docs/RELEASE-NOTES-${VERSION}.md"
           if [ ! -f "$NOTES" ]; then NOTES="docs/RELEASE-NOTES-0.5.0.md"; fi
           if gh release view "v${VERSION}" >/dev/null 2>&1; then
-            gh release upload "v${VERSION}" "dist/dsh-whiteboard-${VERSION}.tgz" "dist/安装说明-${VERSION}.md" --clobber
+            gh release upload "v${VERSION}" "dist/dsh-whiteboard-${VERSION}.tgz" "dist/install-guide-${VERSION}.md" --clobber
           else
             gh release create "v${VERSION}" \
               "dist/dsh-whiteboard-${VERSION}.tgz" \
-              "dist/安装说明-${VERSION}.md" \
+              "dist/install-guide-${VERSION}.md" \
               --title "v${VERSION}" \
               --notes-file "$NOTES"
           fi
