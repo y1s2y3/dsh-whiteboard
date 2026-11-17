@@ -1,0 +1,4 @@
+# 统一换行符；图片/压缩包按二进制处理，避免被当文本改写
+* text=auto
+*.png binary
+*.tgz binary

@@ -1,0 +1,4 @@
+# The whiteboard bundle patch: one loader row for the host half.
+- insert:
+    - id: whiteboard
+      name: 'dsh-whiteboard'

@@ -1,0 +1,14 @@
+# 依赖与构建产物
+node_modules/
+dist/
+
+# 本地部署备份、截图与本地产物（不进仓库）
+backups/
+browser-screenshots/
+*.tgz
+
+# 编辑器/系统杂项
+.DS_Store
+Thumbs.db
+*.bak-*
+*.log
